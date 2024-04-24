@@ -49,3 +49,51 @@ nav a:hover {
   margin: auto;
   padding-top: 64px;
 }
+
+.model {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: sans-serif;
+  text-align: center;
+  padding: 10rem;
+}
+
+.modelContainer {
+  position: relative;
+}
+
+.muscle-tooltip {
+  position: absolute;
+  background-color: #fff;
+  padding: 5px;
+  border: 1px solid #ccc;
+  display: none;
+  z-index: 1000;
+  pointer-events: none;
+  top: 20px;
+  left: 20px;
+}
+
+
+
+.ModelContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: sans-serif;
+  text-align: center;
+  padding: 10rem;
+}
+
+.Tooltip {
+  position: fixed;
+  padding: 5px 10px;
+  color: white;
+  background: rgba(0, 0, 0, 0.75);
+  border-radius: 4px;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+
