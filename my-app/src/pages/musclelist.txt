@@ -1,0 +1,32 @@
+Use these for reference. These are the muscles recognized by the library
+
+/* Back */
+trapezius
+upper-back
+lower-back
+
+/* Chest */
+chest
+
+/* Arms */
+biceps
+triceps
+forearm
+back-deltoids
+front-deltoids
+
+/* Abs */
+abs
+obliques
+
+/* Legs */
+adductor
+hamstring
+quadriceps
+abductors
+calves
+gluteal
+
+/* Head */
+head
+neck
