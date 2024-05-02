@@ -1,3 +1,5 @@
+//"node app.js" to run the server
+
 const express = require('express');
 const app = express();
 //random port
