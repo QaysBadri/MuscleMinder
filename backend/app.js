@@ -2,6 +2,7 @@
 
 const express = require('express');
 const app = express();
+const fs = require('fs');
 const Database = require('better-sqlite3');
 //random port
 const port = 8080;
@@ -9,8 +10,9 @@ const port = 8080;
 // SQLite uses a file to represent the database
 const db = new Database('database/database.db');
 
-// Filler table
-db.exec('CREATE TABLE IF NOT EXISTS workouts (name TEXT PRIMARY KEY, muscle1 TEXT, muscle2 TEXT)');
+// Read the Create SQL file
+const sql = fs.readFileSync('database/create.sql', 'utf8');
+db.exec(sql);
 db.close();
 
 
