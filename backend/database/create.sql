@@ -7,7 +7,7 @@ CREATE TABLE workouts (
     id INTEGER PRIMARY KEY,
     name TEXT NOT NULL,
     description TEXT,
-    intensity INTEGER -- Intensity level (e.g., 1-10),
+    intensity INTEGER, -- Intensity level (1-3)
     video TEXT -- Link to video
 );
 
