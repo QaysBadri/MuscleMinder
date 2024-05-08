@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import Model from 'react-body-highlighter';
 
+
+import Select from 'react-select';
+
 import '../App.css';  
+import data from './data.js';
 
 function HomePage() {
     //States 
@@ -9,67 +13,74 @@ function HomePage() {
     //call setStateName to update the state
     const [tooltip, setTooltip] = useState("");
     const [tooltipVisible, setTooltipVisible] = useState(false);
-    const [selectedExercise, setSelectedExercise] = useState("");
+    const [selectedExercises, setSelectedExercises] = useState([]);
+
     
     /* Testing data, to be replaced with actual data in later steps. Notice how the muscle groups listed
     in the muscles array are the highlighted muscles. The library does this for us. */
-    const data = [
-        {
-          name: "Bench Press",
-          muscles: ["chest", "triceps", "front-deltoids"]
-        },
-        {
-          name: "Tricep Pushdown",
-          muscles: ["triceps"]
-        }
-    ];
+
 
     //event handlers, these functions are called when the user interacts with the model
     //event handles are formatted as follows: const handleEventName = (event) => {function body}
-    const handleMouseClick = (muscleData) => {
-        setTooltip(`Muscle: ${muscleData.muscle}`);
-        setTooltipVisible(true);
-    };
+    // Handle mouse click on model
+  // Find selected exercise data
 
-    const handleDropdownChange = (event) => {
-        setSelectedExercise(event.target.value);
-    };    
+  const handleMouseClick = (muscleData) => {
+    setTooltip(`Muscle: ${muscleData.muscle}`);
+    setTooltipVisible(true);
+};
 
-    const selectedExerciseData = data.find(exercise => exercise.name === selectedExercise);
+// Handles changes in the dropdown selection
+const handleDropdownChange = (selectedOptions) => {
+    setSelectedExercises(selectedOptions);
+};
 
-    //return statement, gives the component structure, in an HTML like format
-    return (
-        <div>
-            <h1>Hi Team</h1>
-            <p>This is our home page where the muscle groups will be shown.</p>
-            <select value={selectedExercise} onChange={handleDropdownChange} className="ExerciseDropdown">
-                <option value="">Select an Exercise</option>
-                {data.map((exercise, index) => (
-                    <option key={index} value={exercise.name}>{exercise.name}</option>
-                ))}
-            </select>
-            <div class="ModelContainer">
+
+
+
+// Filter exercises based on the selected options in dropdown
+let filteredExercises;
+if (selectedExercises.length > 0) {
+    filteredExercises = data.filter(exercise => selectedExercises.map(option => option.value).includes(exercise.name));
+} else {
+    filteredExercises = [];
+}
+
+
+return (
+    <div>
+        <h1>Hi Team</h1>
+        <p>This is our home page where the muscle groups will be shown.</p>
+
+        <Select
+            isMulti
+            name="Workouts"
+            options={data.map((exercise) => ({ value: exercise.name, label: exercise.name }))}
+            className="basic-multi-select"
+            classNamePrefix="select"
+            onChange={handleDropdownChange}
+            value={selectedExercises}
+        />
+
+        <div className="ModelContainer">
             <Model
-                //data for highlighting
-                data={data}
-                //send the muscle name data to the handleMouseClick function
-                onClick={handleMouseClick} 
+                data={filteredExercises}
+                onClick={handleMouseClick}
             />
             <Model
-            type="posterior"
-            //data for highlighting
-            data={data}
-            //send the muscle name data to the handleMouseClick function
-            onClick={handleMouseClick} 
+                type="posterior"
+                data={filteredExercises}
+                onClick={handleMouseClick}
             />
-            </div>
-            {tooltipVisible && (
-                <div className="Tooltip" style={{ position: 'absolute', left: '50%', top: '10%' }}>
-                    {tooltip}
-                </div>
-            )}
         </div>
-    );
+
+        {tooltipVisible && (
+            <div className="Tooltip" style={{ position: 'absolute', left: '50%', top: '10%' }}>
+                {tooltip}
+            </div>
+        )}
+    </div>
+);
 }
 
 export default HomePage;
