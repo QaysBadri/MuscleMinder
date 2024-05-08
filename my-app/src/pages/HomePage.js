@@ -14,6 +14,7 @@ function HomePage() {
     const [tooltip, setTooltip] = useState("");
     const [tooltipVisible, setTooltipVisible] = useState(false);
     const [selectedExercises, setSelectedExercises] = useState([]);
+
     
     /* Testing data, to be replaced with actual data in later steps. Notice how the muscle groups listed
     in the muscles array are the highlighted muscles. The library does this for us. */
