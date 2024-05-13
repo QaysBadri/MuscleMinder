@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS muscles (
     name TEXT NOT NULL
 );
 
-CREATE TABLE workouts (
+CREATE TABLE IF NOT EXISTS workouts (
     id INTEGER PRIMARY KEY,
     name TEXT NOT NULL,
     description TEXT,
@@ -11,7 +11,7 @@ CREATE TABLE workouts (
     video TEXT -- Link to video
 );
 
-CREATE TABLE muscles_to_workouts (
+CREATE TABLE IF NOT EXISTS muscles_to_workouts (
     muscle_id INTEGER,
     workout_id INTEGER,
     FOREIGN KEY (muscle_id) REFERENCES muscles(id),
