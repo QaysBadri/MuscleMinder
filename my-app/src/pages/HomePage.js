@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import Model from 'react-body-highlighter';
-
-
 import Select from 'react-select';
-
+import { useNavigate } from 'react-router-dom';
 import '../App.css';  
 import data from './data.js';
 
@@ -14,7 +12,7 @@ function HomePage() {
     const [tooltip, setTooltip] = useState("");
     const [tooltipVisible, setTooltipVisible] = useState(false);
     const [selectedExercises, setSelectedExercises] = useState([]);
-
+    const navigate = useNavigate();
     
     /* Testing data, to be replaced with actual data in later steps. Notice how the muscle groups listed
     in the muscles array are the highlighted muscles. The library does this for us. */
@@ -28,14 +26,13 @@ function HomePage() {
   const handleMouseClick = (muscleData) => {
     setTooltip(`Muscle: ${muscleData.muscle}`);
     setTooltipVisible(true);
+    navigate('/exercise');
 };
 
 // Handles changes in the dropdown selection
 const handleDropdownChange = (selectedOptions) => {
     setSelectedExercises(selectedOptions);
 };
-
-
 
 
 // Filter exercises based on the selected options in dropdown

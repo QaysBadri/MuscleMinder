@@ -2,6 +2,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import HomePage from "./pages/HomePage";
+import ExercisePage from "./pages/ExercisePage";
 import { useState } from "react";
 import React from 'react';
 import Model, { IExerciseData, IMuscleStats } from 'react-body-highlighter';
@@ -18,6 +19,7 @@ function App() {
         <div id="page-body">
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/exercise" element={<ExercisePage />} />
             {/* Add additional routes here if needed */}
           </Routes>
         </div>
