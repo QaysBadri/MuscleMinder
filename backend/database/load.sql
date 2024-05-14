@@ -67,7 +67,6 @@ INSERT INTO workouts (id, name, description, intensity, video, equipment) VALUES
     (38, 'Mountain Climbers', 'Muscles Targeted: abs, front-deltoids, hip flexors', 3, 'https://www.youtube.com/watch?v=nmwgirgXLYM', ''),
     (39, 'Woodchoppers', 'Muscles Targeted: obliques, abs', 3, 'https://www.youtube.com/watch?v=pAplQXk3dkU', '');
 
-
 -- Insert statements for muscles_to_workouts
 INSERT INTO muscles_to_workouts (muscle_id, workout_id) VALUES
     (4, 1), -- Chest - Barbell Bench Press
