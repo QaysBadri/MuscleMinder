@@ -3,14 +3,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import HomePage from "./pages/HomePage";
 import { useState } from "react";
-import React from 'react';
-import Model, { IExerciseData, IMuscleStats } from 'react-body-highlighter';
+import React from "react";
+import Model, { IExerciseData, IMuscleStats } from "react-body-highlighter";
 
 import "./index.css";
 
 //This is the main component of the application, if you want to work on the body model, you will need to work on the HomePage component
 function App() {
-
   return (
     <BrowserRouter>
       <div className="App">
