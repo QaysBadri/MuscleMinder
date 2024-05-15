@@ -1,158 +1,314 @@
-export default  [
+module.exports = [
     {
-        "name": "Barbell Bench Press",
-        "muscles": ["chest", "front-deltoids", "triceps"]
+        name: "Barbell Bench Press",
+        description: "Muscles Targeted: Pectoralis major (chest), anterior deltoids (front shoulders), triceps",
+        intensity: 2,
+        video: null,
+        muscles: ["chest", "front-deltoids", "triceps"],
+        equipment: ["Barbell"]
     },
     {
-        "name": "Incline Bench Press",
-        "muscles": ["chest", "front-deltoids", "triceps"]
+        name: "Incline Bench Press",
+        description: "Muscles Targeted: Upper chest (clavicular head of pectoralis major), anterior deltoids, triceps",
+        intensity: 2,
+        video: null,
+        muscles: ["chest", "front-deltoids", "triceps"],
+        equipment: ["Barbell"]
     },
     {
-        "name": "Dumbbell Flyes",
-        "muscles": ["chest", "front-deltoids"]
+        name: "Dumbbell Flyes",
+        description: "Muscles Targeted: Pectoralis major, anterior deltoids, serratus anterior",
+        intensity: 2,
+        video: null,
+        muscles: ["chest", "front-deltoids"],
+        equipment: ["Dumbbells"]
     },
     {
-        "name": "Push-ups",
-        "muscles": ["chest", "front-deltoids", "triceps"]
+        name: "Push-ups",
+        description: "Muscles Targeted: Pectoralis major, anterior deltoids, triceps, serratus anterior",
+        intensity: 1,
+        video: null,
+        muscles: ["chest", "front-deltoids", "triceps"],
+        equipment: []
     },
     {
-        "name": "Cable Chest Press",
-        "muscles": ["chest", "front-deltoids", "triceps"]
+        name: "Cable Chest Press",
+        description: "Muscles Targeted: Pectoralis major, anterior deltoids, triceps",
+        intensity: 2,
+        video: null,
+        muscles: ["chest", "front-deltoids", "triceps"],
+        equipment: ["Cable"]
     },
     {
-        "name": "Chest Dips",
-        "muscles": ["chest", "front-deltoids", "triceps"]
+        name: "Chest Dips",
+        description: "Muscles Targeted: Pectoralis major, anterior deltoids, triceps, serratus anterior",
+        intensity: 2,
+        video: null,
+        muscles: ["chest", "front-deltoids", "triceps"],
+        equipment: []
     },
     {
-        "name": "Deadlift",
-        "muscles": ["lower-back", "upper-back", "hamstring", "gluteal"]
+        name: "Deadlift",
+        description: "Muscles Targeted: Erector spine (lower back), latissimus dorsi (lats), trapezius, rhomboids, glutes, hamstrings",
+        intensity: 3,
+        video: null,
+        muscles: ["lower-back", "upper-back", "hamstring", "gluteal"],
+        equipment: ["Barbell"]
     },
     {
-        "name": "Pull-ups/Chin-ups",
-        "muscles": ["upper-back", "biceps", "back-deltoids"]
+        name: "Pull-ups/Chin-ups",
+        description: "Muscles Targeted: Latissimus dorsi, biceps, rear deltoids, upper back (trapezius and rhomboids)",
+        intensity: 3,
+        video: null,
+        muscles: ["upper-back", "biceps", "back-deltoids"],
+        equipment: []
     },
     {
-        "name": "Bent-over Rows",
-        "muscles": ["upper-back", "biceps", "back-deltoids"]
+        name: "Bent-over Rows",
+        description: "Muscles Targeted: Latissimus dorsi, rhomboids, lower and middle trapezius, rear deltoids, biceps",
+        intensity: 2,
+        video: null,
+        muscles: ["upper-back", "biceps", "back-deltoids"],
+        equipment: ["Barbell", "Dumbbells"]
     },
     {
-        "name": "T-Bar Rows",
-        "muscles": ["upper-back", "biceps", "back-deltoids"]
+        name: "T-Bar Rows",
+        description: "Muscles Targeted: Latissimus dorsi, rhomboids, rear deltoids, lower and middle trapezius, biceps",
+        intensity: 2,
+        video: null,
+        muscles: ["upper-back", "biceps", "back-deltoids"],
+        equipment: ["Barbell"]
     },
     {
-        "name": "Lat Pulldowns",
-        "muscles": ["upper-back", "biceps", "back-deltoids"]
+        name: "Lat Pulldowns",
+        description: "Muscles Targeted: Latissimus dorsi, biceps, rear deltoids, upper back (trapezius and rhomboids)",
+        intensity: 2,
+        video: null,
+        muscles: ["upper-back", "biceps", "back-deltoids"],
+        equipment: ["Cable"]
     },
     {
-        "name": "Seated Cable Rows",
-        "muscles": ["upper-back", "biceps", "back-deltoids"]
+        name: "Seated Cable Rows",
+        description: "Muscles Targeted: Latissimus dorsi, rhomboids, rear deltoids, lower and middle trapezius, biceps",
+        intensity: 2,
+        video: null,
+        muscles: ["upper-back", "biceps", "back-deltoids"],
+        equipment: ["Cable"]
     },
     {
-        "name": "Squats",
-        "muscles": ["quadriceps", "hamstring", "gluteal", "calves"]
+        name: "Squats",
+        description: "Muscles Targeted: Quadriceps, hamstrings, glutes, calves",
+        intensity: 3,
+        video: null,
+        muscles: ["quadriceps", "hamstring", "gluteal", "calves"],
+        equipment: ["Barbell"]
     },
     {
-        "name": "Lunges",
-        "muscles": ["quadriceps", "hamstring", "gluteal", "calves"]
+        name: "Lunges",
+        description: "Muscles Targeted: Quadriceps, hamstrings, glutes, calves",
+        intensity: 2,
+        video: null,
+        muscles: ["quadriceps", "hamstring", "gluteal", "calves"],
+        equipment: ["Dumbbells"]
     },
     {
-        "name": "Leg Press",
-        "muscles": ["quadriceps", "hamstring", "gluteal", "calves"]
+        name: "Leg Press",
+        description: "Muscles Targeted: Quadriceps, hamstrings, glutes, calves",
+        intensity: 2,
+        video: null,
+        muscles: ["quadriceps", "hamstring", "gluteal", "calves"],
+        equipment: ["Machine"]
     },
     {
-        "name": "Romanian Deadlifts",
-        "muscles": ["hamstring", "gluteal", "lower-back"]
+        name: "Romanian Deadlifts",
+        description: "Muscles Targeted: Hamstrings, glutes, lower back",
+        intensity: 3,
+        video: null,
+        muscles: ["hamstring", "gluteal", "lower-back"],
+        equipment: ["Barbell"]
     },
     {
-        "name": "Leg Curls",
-        "muscles": ["hamstring"]
+        name: "Leg Curls",
+        description: "Muscles Targeted: Hamstrings",
+        intensity: 2,
+        video: null,
+        muscles: ["hamstring"],
+        equipment: ["Machine"]
     },
     {
-        "name": "Calf Raises",
-        "muscles": ["calves"]
+        name: "Calf Raises",
+        description: "Muscles Targeted: Gastrocnemius, soleus",
+        intensity: 1,
+        video: null,
+        muscles: ["calves"],
+        equipment: ["Dumbbells"]
     },
     {
-        "name": "Overhead Press",
-        "muscles": ["front-deltoids", "triceps"]
+        name: "Overhead Press",
+        description: "Muscles Targeted: Deltoids (shoulders), triceps",
+        intensity: 3,
+        video: null,
+        muscles: ["front-deltoids", "triceps"],
+        equipment: ["Barbell", "Dumbbells"]
     },
     {
-        "name": "Lateral Raises",
-        "muscles": ["front-deltoids"]
+        name: "Lateral Raises",
+        description: "Muscles Targeted: Lateral deltoids",
+        intensity: 2,
+        video: null,
+        muscles: ["front-deltoids"],
+        equipment: ["Dumbbells"]
     },
     {
-        "name": "Front Raises",
-        "muscles": ["front-deltoids"]
+        name: "Front Raises",
+        description: "Muscles Targeted: Anterior deltoids",
+        intensity: 2,
+        video: null,
+        muscles: ["front-deltoids"],
+        equipment: ["Dumbbells"]
     },
     {
-        "name": "Upright Rows",
-        "muscles": ["front-deltoids", "biceps", "trapezius"]
+        name: "Upright Rows",
+        description: "Muscles Targeted: Deltoids, traps, biceps",
+        intensity: 2,
+        video: null,
+        muscles: ["front-deltoids", "biceps", "trapezius"],
+        equipment: ["Barbell"]
     },
     {
-        "name": "Arnold Press",
-        "muscles": ["front-deltoids", "triceps"]
+        name: "Arnold Press",
+        description: "Muscles Targeted: Deltoids, triceps",
+        intensity: 3,
+        video: null,
+        muscles: ["front-deltoids", "triceps"],
+        equipment: ["Dumbbells"]
     },
     {
-        "name": "Face Pulls",
-        "muscles": ["back-deltoids", "upper-back", "trapezius"]
+        name: "Face Pulls",
+        description: "Muscles Targeted: Rear deltoids, rhomboids, traps, external rotators of the shoulder",
+        intensity: 2,
+        video: null,
+        muscles: ["back-deltoids", "upper-back", "trapezius"],
+        equipment: ["Cable"]
     },
     {
-        "name": "Barbell or Dumbbell Bicep Curl",
-        "muscles": ["biceps"]
+        name: "Barbell or Dumbbell Bicep Curl",
+        description: "Muscles Targeted: Biceps brachii",
+        intensity: 2,
+        video: null,
+        muscles: ["biceps"],
+        equipment: ["Barbell", "Dumbbells"]
     },
     {
-        "name": "Hammer Curls",
-        "muscles": ["biceps"]
+        name: "Hammer Curls",
+        description: "Muscles Targeted: Biceps brachii, brachialis, brachioradialis",
+        intensity: 2,
+        video: null,
+        muscles: ["biceps"],
+        equipment: ["Dumbbells"]
     },
     {
-        "name": "Preacher Curls",
-        "muscles": ["biceps"]
+        name: "Preacher Curls",
+        description: "Muscles Targeted: Biceps brachii",
+        intensity: 2,
+        video: null,
+        muscles: ["biceps"],
+        equipment: ["Barbell", "Dumbbells"]
     },
     {
-        "name": "Concentration Curls",
-        "muscles": ["biceps"]
+        name: "Concentration Curls",
+        description: "Muscles Targeted: Biceps brachii",
+        intensity: 2,
+        video: null,
+        muscles: ["biceps"],
+        equipment: ["Dumbbells"]
     },
     {
-        "name": "Tricep Dips",
-        "muscles": ["triceps", "chest", "front-deltoids"]
+        name: "Tricep Dips",
+        description: "Muscles Targeted: Triceps, chest, shoulders",
+        intensity: 3,
+        video: null,
+        muscles: ["triceps", "chest", "front-deltoids"],
+        equipment: []
     },
     {
-        "name": "Skullcrushers",
-        "muscles": ["triceps"]
+        name: "Skullcrushers",
+        description: "Muscles Targeted: Triceps",
+        intensity: 3,
+        video: null,
+        muscles: ["triceps"],
+        equipment: ["Barbell"]
     },
     {
-        "name": "Tricep Kickbacks",
-        "muscles": ["triceps"]
+        name: "Tricep Kickbacks",
+        description: "Muscles Targeted: Triceps",
+        intensity: 2,
+        video: null,
+        muscles: ["triceps"],
+        equipment: ["Dumbbells"]
     },
     {
-        "name": "Cable Tricep Pushdowns",
-        "muscles": ["triceps"]
+        name: "Cable Tricep Pushdowns",
+        description: "Muscles Targeted: Triceps",
+        intensity: 2,
+        video: null,
+        muscles: ["triceps"],
+        equipment: ["Cable"]
     },
     {
-        "name": "Overhead Tricep Extension",
-        "muscles": ["triceps"]
+        name: "Overhead Tricep Extension",
+        description: "Muscles Targeted: Triceps",
+        intensity: 2,
+        video: null,
+        muscles: ["triceps"],
+        equipment: ["Dumbbells"]
     },
     {
-        "name": "Plank",
-        "muscles": ["abs"]
+        name: "Plank",
+        description: "Muscles Targeted: Rectus abdominis, transverse abdominis, obliques, hip flexors",
+        intensity: 2,
+        video: null,
+        muscles: ["abs"],
+        equipment: []
     },
     {
-        "name": "Russian Twists",
-        "muscles": ["obliques", "abs"]
+        name: "Russian Twists",
+        description: "Muscles Targeted: Obliques, rectus abdominis",
+        intensity: 2,
+        video: null,
+        muscles: ["obliques", "abs"],
+        equipment: ["Dumbbells"]
     },
     {
-        "name": "Bicycle Crunches",
-        "muscles": ["abs", "obliques"]
+        name: "Bicycle Crunches",
+        description: "Muscles Targeted: Rectus abdominis, obliques",
+        intensity: 2,
+        video: null,
+        muscles: ["abs", "obliques"],
+        equipment: []
     },
     {
-        "name": "Leg Raises",
-        "muscles": ["abs"]
+        name: "Leg Raises",
+        description: "Muscles Targeted: Lower abdominals, hip flexors",
+        intensity: 2,
+        video: null,
+        muscles: ["abs"],
+        equipment: []
     },
     {
-        "name": "Mountain Climbers",
-        "muscles": ["abs", "front-deltoids"]
+        name: "Mountain Climbers",
+        description: "Muscles Targeted: Full core, shoulders, hip flexors",
+        intensity: 3,
+        video: null,
+        muscles: ["abs", "front-deltoids"],
+        equipment: []
     },
     {
-        "name": "Woodchoppers",
-        "muscles": ["obliques", "abs"]
+        name: "Woodchoppers",
+        description: "Muscles Targeted: Obliques, rectus abdominis, transverse abdominis",
+        intensity: 3,
+        video: null,
+        muscles: ["obliques", "abs"],
+        equipment: ["Dumbbells"]
     }
 ];
