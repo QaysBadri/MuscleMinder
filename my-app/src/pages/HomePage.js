@@ -24,6 +24,7 @@ function HomePage() {
     const [exerciseOptions, setExerciseOptions] = useState([]);
     const navigate = useNavigate();
 
+
     /* Testing data, to be replaced with actual data in later steps. Notice how the muscle groups listed
     in the muscles array are the highlighted muscles. The library does this for us. */
 
