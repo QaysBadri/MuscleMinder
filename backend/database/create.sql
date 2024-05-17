@@ -8,7 +8,11 @@ CREATE TABLE IF NOT EXISTS workouts (
     name TEXT NOT NULL,
     description TEXT,
     intensity INTEGER, -- Intensity level (1-3)
-    video TEXT -- Link to video
+    video TEXT, -- Link to video
+    needsDumbbell BOOLEAN DEFAULT 0,
+    needsBarbell BOOLEAN DEFAULT 0,
+    needsMachine BOOLEAN DEFAULT 0,
+    needsCable BOOLEAN DEFAULT 0
 );
 
 CREATE TABLE IF NOT EXISTS muscles_to_workouts (
