@@ -26,46 +26,46 @@ INSERT INTO muscles (id, name) VALUES
     (19, 'neck');
     
 -- Insert statements for workouts
-INSERT INTO workouts (id, name, description, intensity, video, equipment) VALUES 
-    (1, 'Barbell Bench Press', 'Muscles Targeted: chest, front-deltoids, triceps', 2, 'https://www.youtube.com/watch?v=gRVjAtPip0Y', 'barbells'),
-    (2, 'Incline Bench Press', 'Muscles Targeted: chest, front-deltoids, triceps', 2, 'https://www.youtube.com/watch?v=SrqOu55lrYU', 'barbells'),
-    (3, 'Dumbbell Flyes', 'Muscles Targeted: chest, front-deltoids', 2, 'https://www.youtube.com/watch?v=eozdVDA78K0', 'dumbells'),
-    (4, 'Push-ups', 'Muscles Targeted: chest, front-deltoids, triceps', 1, 'https://www.youtube.com/watch?v=_l3ySVKYVJ8', ''),
-    (5, 'Cable Chest Press', 'Muscles Targeted: chest, front-deltoids, triceps', 2, 'https://www.youtube.com/watch?v=H1xkzPbvqDU', 'cables'),
-    (6, 'Chest Dips', 'Muscles Targeted: chest, front-deltoids, triceps', 2, 'https://www.youtube.com/watch?v=2z8JmcrW-As', ''),
-    (7, 'Deadlift', 'Muscles Targeted: lower-back, trapezius, gluteal, hamstring', 3, 'https://www.youtube.com/watch?v=r4MzxtBKyNE', 'barbells'),
-    (8, 'Pull-ups/Chin-ups', 'Muscles Targeted: upper-back, biceps, back-deltoids', 3, 'https://www.youtube.com/watch?v=eGo4IYlbE5g', ''),
-    (9, 'Bent-over Rows (Barbell or Dumbbell)', 'Muscles Targeted: upper-back, back-deltoids, biceps', 2, 'https://www.youtube.com/watch?v=FWJR5Ve8bnQ', 'barbells, dumbells'),
-    (10, 'T-Bar Rows', 'Muscles Targeted: upper-back, back-deltoids, biceps', 2, 'https://www.youtube.com/watch?v=j3Igk5nyZE4', 'barbells'),
-    (11, 'Lat Pulldowns', 'Muscles Targeted: upper-back, biceps, back-deltoids', 2, 'https://www.youtube.com/watch?v=CAwf7n6Luuc', 'machine'),
-    (12, 'Seated Cable Rows', 'Muscles Targeted: upper-back, back-deltoids, biceps', 2, 'https://www.youtube.com/watch?v=GZbfZ033f74', 'cables'),
-    (13, 'Squats', 'Muscles Targeted: quadriceps, hamstring, gluteal, calves', 3, 'https://www.youtube.com/watch?v=Dy28eq2PjcM', 'barbells'),
-    (14, 'Lunges', 'Muscles Targeted: quadriceps, hamstring, gluteal, calves', 2, 'https://www.youtube.com/watch?v=QOVaHwm-Q6U', 'dumbells'),
-    (15, 'Leg Press', 'Muscles Targeted: quadriceps, hamstring, gluteal, calves', 2, 'https://www.youtube.com/watch?v=IZxyjW7MPJQ', 'machine'),
-    (16, 'Romanian Deadlifts', 'Muscles Targeted: hamstring, gluteal, lower-back', 3, 'https://www.youtube.com/watch?v=JCXUYuzwNrM', 'barbells'),
-    (17, 'Leg Curls', 'Muscles Targeted: hamstring', 2, 'https://www.youtube.com/watch?v=ELOCsoDSmrg', 'machine'),
-    (18, 'Calf Raises', 'Muscles Targeted: calves', 1, 'https://www.youtube.com/watch?v=-M4-G8p8fmc', ''),
-    (19, 'Overhead Press (Barbell or Dumbbell)', 'Muscles Targeted: front-deltoids, triceps', 3, 'https://www.youtube.com/watch?v=F3QY5vMz_6I', 'barbells, dumbells'),
-    (20, 'Lateral Raises', 'Muscles Targeted: back-deltoids', 2, 'https://www.youtube.com/watch?v=3VcKaXpzqRo', 'dumbells'),
-    (21, 'Front Raises', 'Muscles Targeted: front-deltoids', 2, 'https://www.youtube.com/watch?v=-t7fuZ0KhDA', 'dumbells'),
-    (22, 'Upright Rows', 'Muscles Targeted: front-deltoids, trapezius, biceps', 2, 'https://www.youtube.com/watch?v=amCU-ziHITM', 'barbells'),
-    (23, 'Arnold Press', 'Muscles Targeted: front-deltoids, triceps', 3, 'https://www.youtube.com/watch?v=3ml7BH7mNwQ', 'dumbells'),
-    (24, 'Face Pulls', 'Muscles Targeted: back-deltoids, trapezius', 2, 'https://www.youtube.com/watch?v=rep-qVOkqgk', 'cables'),
-    (25, 'Barbell or Dumbbell Bicep Curl', 'Muscles Targeted: biceps', 2, 'https://www.youtube.com/watch?v=ykJmrZ5v0Oo', 'barbells, dumbells'),
-    (26, 'Hammer Curls', 'Muscles Targeted: biceps', 2, 'https://www.youtube.com/watch?v=zC3nLlEvin4', 'dumbells'),
-    (27, 'Preacher Curls', 'Muscles Targeted: biceps', 2, 'https://www.youtube.com/watch?v=3mtXqrkbEfI', 'dumbells'),
-    (28, 'Concentration Curls', 'Muscles Targeted: biceps', 2, 'https://www.youtube.com/watch?v=Jvj2wV0vOYU', 'dumbells'),
-    (29, 'Tricep Dips', 'Muscles Targeted: triceps, chest, front-deltoids', 3, 'https://www.youtube.com/watch?v=6kALZikXxLc', ''),
-    (30, 'Skullcrushers (lying tricep extension)', 'Muscles Targeted: triceps', 3, 'https://www.youtube.com/watch?v=d_KZxkY_0cM', 'barbells'),
-    (31, 'Tricep Kickbacks', 'Muscles Targeted: triceps', 2, 'https://www.youtube.com/watch?v=ZO81bExngMI', 'dumbells'),
-    (32, 'Cable Tricep Pushdowns', 'Muscles Targeted: triceps', 2, 'https://www.youtube.com/watch?v=2-LAMcpzODU', 'cables'),
-    (33, 'Overhead Tricep Extension', 'Muscles Targeted: triceps', 2, 'https://www.youtube.com/watch?v=-Vyt2QdsR7E&t=11s', 'dumbells'),
-    (34, 'Plank', 'Muscles Targeted: abs, obliques', 2, 'https://www.youtube.com/watch?v=ASdvN_XEl_c', ''),
-    (35, 'Russian Twists', 'Muscles Targeted: obliques, abs', 2, 'https://www.youtube.com/watch?v=wkD8rjkodUI', ''),
-    (36, 'Bicycle Crunches', 'Muscles Targeted: abs, obliques', 2, 'https://www.youtube.com/watch?v=9FGilxCbdz8', ''),
-    (37, 'Leg Raises', 'Muscles Targeted: abs', 2, 'https://www.youtube.com/watch?v=l4kQd9eWclE', ''),
-    (38, 'Mountain Climbers', 'Muscles Targeted: abs, front-deltoids, hip flexors', 3, 'https://www.youtube.com/watch?v=nmwgirgXLYM', ''),
-    (39, 'Woodchoppers', 'Muscles Targeted: obliques, abs', 3, 'https://www.youtube.com/watch?v=pAplQXk3dkU', '');
+INSERT INTO workouts (id, name, description, intensity, video) VALUES
+    (1, 'Barbell Bench Press', 'Muscles Targeted: chest, front-deltoids, triceps', 2, 'https://www.youtube.com/watch?v=gRVjAtPip0Y'),
+    (2, 'Incline Bench Press', 'Muscles Targeted: chest, front-deltoids, triceps', 2, 'https://www.youtube.com/watch?v=SrqOu55lrYU'),
+    (3, 'Dumbbell Flyes', 'Muscles Targeted: chest, front-deltoids', 2, 'https://www.youtube.com/watch?v=eozdVDA78K0'),
+    (4, 'Push-ups', 'Muscles Targeted: chest, front-deltoids, triceps', 1, 'https://www.youtube.com/watch?v=_l3ySVKYVJ8'),
+    (5, 'Cable Chest Press', 'Muscles Targeted: chest, front-deltoids, triceps', 2, 'https://www.youtube.com/watch?v=H1xkzPbvqDU'),
+    (6, 'Chest Dips', 'Muscles Targeted: chest, front-deltoids, triceps', 2, 'https://www.youtube.com/watch?v=2z8JmcrW-As'),
+    (7, 'Deadlift', 'Muscles Targeted: lower-back, trapezius, gluteal, hamstring', 3, 'https://www.youtube.com/watch?v=r4MzxtBKyNE'),
+    (8, 'Pull-ups/Chin-ups', 'Muscles Targeted: upper-back, biceps, back-deltoids', 3, 'https://www.youtube.com/watch?v=eGo4IYlbE5g'),
+    (9, 'Bent-over Rows (Barbell or Dumbbell)', 'Muscles Targeted: upper-back, back-deltoids, biceps', 2, 'https://www.youtube.com/watch?v=FWJR5Ve8bnQ'),
+    (10, 'T-Bar Rows', 'Muscles Targeted: upper-back, back-deltoids, biceps', 2, 'https://www.youtube.com/watch?v=j3Igk5nyZE4'),
+    (11, 'Lat Pulldowns', 'Muscles Targeted: upper-back, biceps, back-deltoids', 2, 'https://www.youtube.com/watch?v=CAwf7n6Luuc'),
+    (12, 'Seated Cable Rows', 'Muscles Targeted: upper-back, back-deltoids, biceps', 2, 'https://www.youtube.com/watch?v=GZbfZ033f74'),
+    (13, 'Squats', 'Muscles Targeted: quadriceps, hamstring, gluteal, calves', 3, 'https://www.youtube.com/watch?v=Dy28eq2PjcM'),
+    (14, 'Lunges', 'Muscles Targeted: quadriceps, hamstring, gluteal, calves', 2, 'https://www.youtube.com/watch?v=QOVaHwm-Q6U'),
+    (15, 'Leg Press', 'Muscles Targeted: quadriceps, hamstring, gluteal, calves', 2, 'https://www.youtube.com/watch?v=IZxyjW7MPJQ'),
+    (16, 'Romanian Deadlifts', 'Muscles Targeted: hamstring, gluteal, lower-back', 3, 'https://www.youtube.com/watch?v=JCXUYuzwNrM'),
+    (17, 'Leg Curls', 'Muscles Targeted: hamstring', 2, 'https://www.youtube.com/watch?v=ELOCsoDSmrg'),
+    (18, 'Calf Raises', 'Muscles Targeted: calves', 1, 'https://www.youtube.com/watch?v=-M4-G8p8fmc'),
+    (19, 'Overhead Press (Barbell or Dumbbell)', 'Muscles Targeted: front-deltoids, triceps', 3, 'https://www.youtube.com/watch?v=F3QY5vMz_6I'),
+    (20, 'Lateral Raises', 'Muscles Targeted: back-deltoids', 2, 'https://www.youtube.com/watch?v=3VcKaXpzqRo'),
+    (21, 'Front Raises', 'Muscles Targeted: front-deltoids', 2, 'https://www.youtube.com/watch?v=-t7fuZ0KhDA'),
+    (22, 'Upright Rows', 'Muscles Targeted: front-deltoids, trapezius, biceps', 2, 'https://www.youtube.com/watch?v=amCU-ziHITM'),
+    (23, 'Arnold Press', 'Muscles Targeted: front-deltoids, triceps', 3, 'https://www.youtube.com/watch?v=3ml7BH7mNwQ'),
+    (24, 'Face Pulls', 'Muscles Targeted: back-deltoids, trapezius', 2, 'https://www.youtube.com/watch?v=rep-qVOkqgk'),
+    (25, 'Barbell or Dumbbell Bicep Curl', 'Muscles Targeted: biceps', 2, 'https://www.youtube.com/watch?v=ykJmrZ5v0Oo'),
+    (26, 'Hammer Curls', 'Muscles Targeted: biceps', 2, 'https://www.youtube.com/watch?v=zC3nLlEvin4'),
+    (27, 'Preacher Curls', 'Muscles Targeted: biceps', 2, 'https://www.youtube.com/watch?v=3mtXqrkbEfI'),
+    (28, 'Concentration Curls', 'Muscles Targeted: biceps', 2, 'https://www.youtube.com/watch?v=Jvj2wV0vOYU'),
+    (29, 'Tricep Dips', 'Muscles Targeted: triceps, chest, front-deltoids', 3, 'https://www.youtube.com/watch?v=6kALZikXxLc'),
+    (30, 'Skullcrushers (lying tricep extension)', 'Muscles Targeted: triceps', 3, 'https://www.youtube.com/watch?v=d_KZxkY_0cM'),
+    (31, 'Tricep Kickbacks', 'Muscles Targeted: triceps', 2, 'https://www.youtube.com/watch?v=ZO81bExngMI'),
+    (32, 'Cable Tricep Pushdowns', 'Muscles Targeted: triceps', 2, 'https://www.youtube.com/watch?v=2-LAMcpzODU'),
+    (33, 'Overhead Tricep Extension', 'Muscles Targeted: triceps', 2, 'https://www.youtube.com/watch?v=-Vyt2QdsR7E&t=11s'),
+    (34, 'Plank', 'Muscles Targeted: abs, obliques', 2, 'https://www.youtube.com/watch?v=ASdvN_XEl_c'),
+    (35, 'Russian Twists', 'Muscles Targeted: obliques, abs', 2, 'https://www.youtube.com/watch?v=wkD8rjkodUI'),
+    (36, 'Bicycle Crunches', 'Muscles Targeted: abs, obliques', 2, 'https://www.youtube.com/watch?v=9FGilxCbdz8'),
+    (37, 'Leg Raises', 'Muscles Targeted: abs', 2, 'https://www.youtube.com/watch?v=l4kQd9eWclE'),
+    (38, 'Mountain Climbers', 'Muscles Targeted: abs, front-deltoids, hip flexors', 3, 'https://www.youtube.com/watch?v=nmwgirgXLYM'),
+    (39, 'Woodchoppers', 'Muscles Targeted: obliques, abs', 3, 'https://www.youtube.com/watch?v=pAplQXk3dkU');
 
 -- Insert statements for muscles_to_workouts
 INSERT INTO muscles_to_workouts (muscle_id, workout_id) VALUES
@@ -155,3 +155,37 @@ INSERT INTO muscles_to_workouts (muscle_id, workout_id) VALUES
     (9, 38), -- Front Deltoids - Mountain Climbers
     (11, 39), -- Obliques - Woodchoppers
     (10, 39); -- Abs - Woodchoppers
+
+--Update statements to indicate necessary equipment
+UPDATE workouts SET needsBarbell = 1 WHERE name = 'Barbell Bench Press';
+UPDATE workouts SET needsBarbell = 1 WHERE name = 'Incline Bench Press';
+UPDATE workouts SET needsDumbbell = 1 WHERE name = 'Dumbbell Flyes';
+UPDATE workouts SET needsCable = 1 WHERE name = 'Cable Chest Press';
+UPDATE workouts SET needsBarbell = 1 WHERE name = 'Deadlift';
+UPDATE workouts SET needsBarbell = 1 WHERE name = 'Romanian Deadlifts';
+UPDATE workouts SET needsBarbell = 1 WHERE name = 'Bent-over Rows (Barbell or Dumbbell)';
+UPDATE workouts SET needsDumbbell = 1 WHERE name = 'Bent-over Rows (Barbell or Dumbbell)';
+UPDATE workouts SET needsBarbell = 1 WHERE name = 'T-Bar Rows';
+UPDATE workouts SET needsMachine = 1 WHERE name = 'Lat Pulldowns';
+UPDATE workouts SET needsCable = 1 WHERE name = 'Seated Cable Rows';
+UPDATE workouts SET needsBarbell = 1 WHERE name = 'Squats';
+UPDATE workouts SET needsDumbbell = 1 WHERE name = 'Lunges';
+UPDATE workouts SET needsMachine = 1 WHERE name = 'Leg Press';
+UPDATE workouts SET needsBarbell = 1 WHERE name = 'Romanian Deadlifts';
+UPDATE workouts SET needsMachine = 1 WHERE name = 'Leg Curls';
+UPDATE workouts SET needsBarbell = 1 WHERE name = 'Overhead Press (Barbell or Dumbbell)';
+UPDATE workouts SET needsDumbbell = 1 WHERE name = 'Overhead Press (Barbell or Dumbbell)';
+UPDATE workouts SET needsDumbbell = 1 WHERE name = 'Lateral Raises';
+UPDATE workouts SET needsDumbbell = 1 WHERE name = 'Front Raises';
+UPDATE workouts SET needsBarbell = 1 WHERE name = 'Upright Rows';
+UPDATE workouts SET needsDumbbell = 1 WHERE name = 'Arnold Press';
+UPDATE workouts SET needsCable = 1 WHERE name = 'Face Pulls';
+UPDATE workouts SET needsBarbell = 1 WHERE name = 'Barbell or Dumbbell Bicep Curl';
+UPDATE workouts SET needsDumbbell = 1 WHERE name = 'Barbell or Dumbbell Bicep Curl';
+UPDATE workouts SET needsDumbbell = 1 WHERE name = 'Hammer Curls';
+UPDATE workouts SET needsDumbbell = 1 WHERE name = 'Preacher Curls';
+UPDATE workouts SET needsDumbbell = 1 WHERE name = 'Concentration Curls';
+UPDATE workouts SET needsBarbell = 1 WHERE name = 'Skullcrushers (lying tricep extension)';
+UPDATE workouts SET needsDumbbell = 1 WHERE name = 'Tricep Kickbacks';
+UPDATE workouts SET needsCable = 1 WHERE name = 'Cable Tricep Pushdowns';
+UPDATE workouts SET needsDumbbell = 1 WHERE name = 'Overhead Tricep Extension';

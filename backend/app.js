@@ -46,6 +46,7 @@ app.get('/muscles/:muscleName', (req, res) =>{
     })
     // workouts[] now contains an array of JSON objects, each representing details of each workout
     console.log(workouts);
+    res.json(workouts);
 });
 
 //starts the server
