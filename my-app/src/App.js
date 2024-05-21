@@ -18,7 +18,7 @@ function App() {
         <div id="page-body">
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/exercise" element={<ExercisePage />} />
+            <Route path="/exercise/:muscle" element={<ExercisePage />} />
             {/* Add additional routes here if needed */}
           </Routes>
         </div>

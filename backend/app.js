@@ -2,6 +2,7 @@
 
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const fs = require('fs');
 const Database = require('better-sqlite3');
 //random port
@@ -18,6 +19,7 @@ const db = new Database('database/database.db');
 
 //for parse incoming JSON data
 app.use(express.json());
+app.use(cors());
 
 app.post('/data', (req, res) => {
     console.log("Received data: ", req.body);
@@ -30,6 +32,8 @@ app.get('/muscles/:muscleName', (req, res) =>{
 
     // Query database to get corresponding muscle ID
     const muscleID = db.prepare('SELECT id FROM muscles WHERE name = ?').pluck().get(muscleName);
+    //log the full request path:
+    console.log(req.originalUrl);
     console.log(muscleName, 'has ID:', muscleID);
 
     // Query database to get list of workout IDs paired with muscleID
