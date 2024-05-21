@@ -43,7 +43,7 @@ function HomePage() {
     const handleMouseClick = (muscleData) => {
         setTooltip(`Muscle: ${muscleData.muscle}`);
         setTooltipVisible(true);
-        navigate('/exercise');
+        navigate(`/exercise/${muscleData.muscle}`);
     };
 
     // Handles changes in the dropdown selection for exercises
