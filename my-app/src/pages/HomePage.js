@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Model from "react-body-highlighter";
 import Select from "react-select";
 import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 import "../App.css";
 
 // Define the options for equipment filtering
@@ -46,10 +47,10 @@ function HomePage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:8080/workouts');
+        const response = await fetch("http://localhost:8080/workouts");
         const data = await response.json();
         // Transform the backend data to include equipment and muscles properties
-        const transformedData = data.map(exercise => {
+        const transformedData = data.map((exercise) => {
           const equipment = [];
           if (exercise.needsDumbbell) equipment.push("Dumbbells");
           if (exercise.needsBarbell) equipment.push("Barbell");
@@ -61,17 +62,33 @@ function HomePage() {
             equipment.push("Dumbbells", "Barbell", "Machine", "Cable");
           }
 
-          const muscles = exercise.description.match(/Muscles Targeted: (.*)/)[1].split(',').map(m => m.trim());
+          const muscles = exercise.description
+            .match(/Muscles Targeted: (.*)/)[1]
+            .split(",")
+            .map((m) => m.trim());
 
           return { ...exercise, equipment, muscles };
         });
         setAllExercises(transformedData);
       } catch (error) {
-        console.error('Error fetching workouts:', error);
+        console.error("Error fetching workouts:", error);
       }
     };
 
     fetchData();
+  }, []);
+
+  useEffect(() => {
+    const savedExercises = Cookies.get("selectedExercises");
+    const savedEquipment = Cookies.get("selectedEquipment");
+
+    if (savedExercises !== undefined) {
+      setSelectedExercises(JSON.parse(savedExercises));
+    }
+
+    if (savedEquipment !== undefined) {
+      setSelectedEquipment(JSON.parse(savedEquipment));
+    }
   }, []);
 
   useEffect(() => {
@@ -114,21 +131,33 @@ function HomePage() {
 
   const handleDropdownChange = (selectedOptions) => {
     setSelectedExercises(selectedOptions);
+    Cookies.set("selectedExercises", JSON.stringify(selectedOptions), {
+      expires: 7,
+    });
   };
 
   const handleEquipmentChange = (selectedOptions) => {
     setSelectedEquipment(selectedOptions.map((option) => option.value));
     setSelectedExercises([]); // Clear selected exercises when equipment changes
+    Cookies.set(
+      "selectedEquipment",
+      JSON.stringify(selectedOptions.map((option) => option.value)),
+      {
+        expires: 7,
+      }
+    );
   };
 
   const scrollToBottom = () => {
-    bottomRef.current.scrollIntoView({ behavior: 'smooth' });
+    bottomRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
   const recommendWorkouts = (group) => {
-    const recommendations = allExercises.filter((exercise) =>
-      exercise.muscles.includes(group) &&
-      (selectedEquipment.length === 0 || selectedEquipment.some((equip) => exercise.equipment.includes(equip)))
+    const recommendations = allExercises.filter(
+      (exercise) =>
+        exercise.muscles.includes(group) &&
+        (selectedEquipment.length === 0 ||
+          selectedEquipment.some((equip) => exercise.equipment.includes(equip)))
     );
     return recommendations.slice(0, 2); // Recommend up to 2 exercises
   };
@@ -141,14 +170,20 @@ function HomePage() {
         return {
           group,
           message: "Not targeted at all.",
-          recommendations: recommendations.length > 0 ? recommendations.map(r => r.name).join(', ') : 'No recommendations available'
+          recommendations:
+            recommendations.length > 0
+              ? recommendations.map((r) => r.name).join(", ")
+              : "No recommendations available",
         };
       } else if (count === 1) {
         const recommendations = recommendWorkouts(group);
         return {
           group,
           message: "Insufficiently targeted.",
-          recommendations: recommendations.length > 0 ? recommendations.map(r => r.name).join(', ') : 'No recommendations available'
+          recommendations:
+            recommendations.length > 0
+              ? recommendations.map((r) => r.name).join(", ")
+              : "No recommendations available",
         };
       } else {
         return { group, message: "Adequately targeted." };
@@ -180,6 +215,10 @@ function HomePage() {
         classNamePrefix="select"
         onChange={handleEquipmentChange}
         placeholder="Select your equipment"
+        value={selectedEquipment.map((equip) => ({
+          value: equip,
+          label: equip,
+        }))}
       />
 
       <Select
@@ -212,7 +251,9 @@ function HomePage() {
         </div>
       )}
 
-      <button className="button-23" onClick={evaluateWorkout}>Improve Workout</button>
+      <button className="button-23" onClick={evaluateWorkout}>
+        Improve Workout
+      </button>
 
       {feedback && (
         <div className="Feedback">
