@@ -12,7 +12,6 @@ h4 {
 nav {
   justify-content: center;
   text-align: center;
-  position: fixed;
   top: 0;
   width: 100%;
   background: #111827;
@@ -105,4 +104,36 @@ nav a:hover {
 
 .Feedback td:first-child {
   font-weight: bold;
+}
+
+
+.button-23 {
+  background-color: #FFFFFF;
+  border: 1px solid #222222;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #222222;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 60px;
+  padding: 3vh 23vw;
+  position: center;
+  margin: 50px;
+  position: relative;
+  transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s;
+}
+
+
+.button-23:active {
+  background-color: #F7F7F7;
+  border-color: #000000;
+  transform: scale(.96);
+}
+
+.button-23:disabled {
+  border-color: #DDDDDD;
+  color: #DDDDDD;
+  cursor: not-allowed;
+  opacity: 1;
 }
