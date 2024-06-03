@@ -28,10 +28,6 @@ const ExercisePage = () => {
     getExercises();
   }, [muscle]);
 
-  if (exercises.length === 0) {
-    return <p>Loading...</p>;
-  }
-
   return (
     <div className={styles['exercise-body']}>
       <header className={styles['exercise-header']}>

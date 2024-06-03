@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Model from "react-body-highlighter";
 import Select from "react-select";
 import { useNavigate } from "react-router-dom";
 import "../App.css";
-import data from "./data.js";
 
 // Define the options for equipment filtering
 const equipmentOptions = [
@@ -33,6 +32,7 @@ const muscleGroups = [
 ];
 
 function HomePage() {
+  const bottomRef = useRef(null);
   const [tooltip, setTooltip] = useState("");
   const [tooltipVisible, setTooltipVisible] = useState(false);
   const [selectedExercises, setSelectedExercises] = useState([]);
@@ -40,10 +40,42 @@ function HomePage() {
   const [exerciseOptions, setExerciseOptions] = useState([]);
   const [muscleGroupCounts, setMuscleGroupCounts] = useState({});
   const [feedback, setFeedback] = useState("");
+  const [allExercises, setAllExercises] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const filteredExercises = data.filter(
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:8080/workouts');
+        const data = await response.json();
+        // Transform the backend data to include equipment and muscles properties
+        const transformedData = data.map(exercise => {
+          const equipment = [];
+          if (exercise.needsDumbbell) equipment.push("Dumbbells");
+          if (exercise.needsBarbell) equipment.push("Barbell");
+          if (exercise.needsMachine) equipment.push("Machine");
+          if (exercise.needsCable) equipment.push("Cable");
+
+          // If no specific equipment is needed, it can show up for any equipment
+          if (equipment.length === 0) {
+            equipment.push("Dumbbells", "Barbell", "Machine", "Cable");
+          }
+
+          const muscles = exercise.description.match(/Muscles Targeted: (.*)/)[1].split(',').map(m => m.trim());
+
+          return { ...exercise, equipment, muscles };
+        });
+        setAllExercises(transformedData);
+      } catch (error) {
+        console.error('Error fetching workouts:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    const filteredExercises = allExercises.filter(
       (exercise) =>
         selectedEquipment.length === 0 ||
         selectedEquipment.some((equip) => exercise.equipment.includes(equip))
@@ -54,7 +86,7 @@ function HomePage() {
         label: exercise.name,
       }))
     );
-  }, [selectedEquipment]);
+  }, [selectedEquipment, allExercises]);
 
   useEffect(() => {
     const counts = muscleGroups.reduce(
@@ -62,15 +94,17 @@ function HomePage() {
       {}
     );
     selectedExercises.forEach((exercise) => {
-      const exerciseData = data.find((e) => e.name === exercise.value);
-      exerciseData.muscles.forEach((muscle) => {
-        if (counts[muscle] !== undefined) {
-          counts[muscle]++;
-        }
-      });
+      const exerciseData = allExercises.find((e) => e.name === exercise.value);
+      if (exerciseData && exerciseData.muscles) {
+        exerciseData.muscles.forEach((muscle) => {
+          if (counts[muscle] !== undefined) {
+            counts[muscle]++;
+          }
+        });
+      }
     });
     setMuscleGroupCounts(counts);
-  }, [selectedExercises]);
+  }, [selectedExercises, allExercises]);
 
   const handleMouseClick = (muscleData) => {
     setTooltip(`Muscle: ${muscleData.muscle}`);
@@ -87,23 +121,46 @@ function HomePage() {
     setSelectedExercises([]); // Clear selected exercises when equipment changes
   };
 
+  const scrollToBottom = () => {
+    bottomRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const recommendWorkouts = (group) => {
+    const recommendations = allExercises.filter((exercise) =>
+      exercise.muscles.includes(group) &&
+      (selectedEquipment.length === 0 || selectedEquipment.some((equip) => exercise.equipment.includes(equip)))
+    );
+    return recommendations.slice(0, 2); // Recommend up to 2 exercises
+  };
+
   const evaluateWorkout = () => {
     const feedbackMessages = muscleGroups.map((group) => {
       const count = muscleGroupCounts[group];
       if (count === 0) {
-        return { group, message: "Not targeted at all." };
+        const recommendations = recommendWorkouts(group);
+        return {
+          group,
+          message: "Not targeted at all.",
+          recommendations: recommendations.length > 0 ? recommendations.map(r => r.name).join(', ') : 'No recommendations available'
+        };
       } else if (count === 1) {
-        return { group, message: "Insufficiently targeted." };
+        const recommendations = recommendWorkouts(group);
+        return {
+          group,
+          message: "Insufficiently targeted.",
+          recommendations: recommendations.length > 0 ? recommendations.map(r => r.name).join(', ') : 'No recommendations available'
+        };
       } else {
         return { group, message: "Adequately targeted." };
       }
     });
     setFeedback(feedbackMessages);
+    scrollToBottom();
   };
 
   let filteredExercises;
   if (selectedExercises.length > 0) {
-    filteredExercises = data.filter((exercise) =>
+    filteredExercises = allExercises.filter((exercise) =>
       selectedExercises.map((option) => option.value).includes(exercise.name)
     );
   } else {
@@ -155,7 +212,7 @@ function HomePage() {
         </div>
       )}
 
-      <button onClick={evaluateWorkout}>Improve Your Workout</button>
+      <button className="button-23" onClick={evaluateWorkout}>Improve Workout</button>
 
       {feedback && (
         <div className="Feedback">
@@ -166,12 +223,16 @@ function HomePage() {
                 <tr key={index}>
                   <td>{item.group}:</td>
                   <td>{item.message}</td>
+                  {item.recommendations && (
+                    <td>Recommendations: {item.recommendations}</td>
+                  )}
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
       )}
+      <div ref={bottomRef}></div>
     </div>
   );
 }
