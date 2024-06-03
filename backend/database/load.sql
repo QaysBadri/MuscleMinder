@@ -189,3 +189,15 @@ UPDATE workouts SET needsBarbell = 1 WHERE name = 'Skullcrushers (lying tricep e
 UPDATE workouts SET needsDumbbell = 1 WHERE name = 'Tricep Kickbacks';
 UPDATE workouts SET needsCable = 1 WHERE name = 'Cable Tricep Pushdowns';
 UPDATE workouts SET needsDumbbell = 1 WHERE name = 'Overhead Tricep Extension';
+
+-- Add flag indicating "push/pull/legs/core" for each workout.
+ALTER TABLE workouts ADD COLUMN split TEXT DEFAULT NULL;
+
+-- Update statements for the split column
+UPDATE workouts SET split = 'push' WHERE name IN ('Barbell Bench Press', 'Incline Bench Press', 'Dumbbell Flyes', 'Push-ups', 'Cable Chest Press', 'Chest Dips', 'Overhead Press (Barbell or Dumbbell)', 'Lateral Raises', 'Front Raises', 'Arnold Press', 'Tricep Dips', 'Skullcrushers (lying tricep extension)', 'Tricep Kickbacks', 'Cable Tricep Pushdowns', 'Overhead Tricep Extension');
+
+UPDATE workouts SET split = 'pull' WHERE name IN ('Deadlift', 'Pull-ups/Chin-ups', 'Bent-over Rows (Barbell or Dumbbell)', 'T-Bar Rows', 'Lat Pulldowns', 'Seated Cable Rows', 'Upright Rows', 'Face Pulls', 'Barbell or Dumbbell Bicep Curl', 'Hammer Curls', 'Preacher Curls', 'Concentration Curls');
+
+UPDATE workouts SET split = 'legs' WHERE name IN ('Squats', 'Lunges (Walking or Stationary)', 'Leg Press', 'Romanian Deadlifts', 'Leg Curls', 'Calf Raises');
+
+UPDATE workouts SET split = 'core' WHERE name IN ('Plank', 'Russian Twists', 'Bicycle Crunches', 'Leg Raises', 'Mountain Climbers', 'Woodchoppers');
