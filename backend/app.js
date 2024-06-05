@@ -53,6 +53,20 @@ app.get('/muscles/:muscleName', (req, res) =>{
     res.json(workouts);
 });
 
+app.get('/workouts', (req, res) => {
+    try {
+        const workouts = db.prepare('SELECT * FROM workouts').all();
+        res.json(workouts);
+        console.log(workouts);
+    } catch (error) {
+        console.error('Error in /workouts route:', error);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
+
+
+
 //starts the server
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);

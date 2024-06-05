@@ -24,7 +24,9 @@ INSERT INTO muscles (id, name) VALUES
     (17, 'gluteal'),
     (18, 'head'),
     (19, 'neck');
+
     
+ -- Insert statements for workouts
 -- Insert statements for workouts
 INSERT INTO workouts (id, name, description, intensity, video) VALUES
     (1, 'Barbell Bench Press', 'Muscles Targeted: chest, front-deltoids, triceps', 2, 'https://www.youtube.com/watch?v=gRVjAtPip0Y'),
@@ -66,6 +68,7 @@ INSERT INTO workouts (id, name, description, intensity, video) VALUES
     (37, 'Leg Raises', 'Muscles Targeted: abs', 2, 'https://www.youtube.com/watch?v=l4kQd9eWclE'),
     (38, 'Mountain Climbers', 'Muscles Targeted: abs, front-deltoids, hip flexors', 3, 'https://www.youtube.com/watch?v=nmwgirgXLYM'),
     (39, 'Woodchoppers', 'Muscles Targeted: obliques, abs', 3, 'https://www.youtube.com/watch?v=pAplQXk3dkU');
+
 
 -- Insert statements for muscles_to_workouts
 INSERT INTO muscles_to_workouts (muscle_id, workout_id) VALUES
