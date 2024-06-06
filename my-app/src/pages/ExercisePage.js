@@ -48,7 +48,7 @@ const ExercisePage = () => {
             <div className={styles['exercise-description-container']}>
               <h2>{exercise.name}</h2>
               <p>{exercise.description}</p>
-              <ul className={styles['exercise-details']}>
+              <ul className={styles['exercise-bullet-points']}>
                 <li>Intensity: {exercise.intensity}</li>
                 <li>Needs Dumbbell: {exercise.needsDumbbell ? 'Yes' : 'No'}</li>
                 <li>Needs Barbell: {exercise.needsBarbell ? 'Yes' : 'No'}</li>
