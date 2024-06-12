@@ -26,32 +26,27 @@ app.post('/data', (req, res) => {
     res.status(200).send('Data received!');
 });
 
-// Template route for querying database
-app.get('/muscles/:muscleName', (req, res) =>{
+app.get('/muscles/:muscleName', (req, res) => {
     const muscleName = req.params.muscleName;
 
-    // Query database to get corresponding muscle ID
     const muscleID = db.prepare('SELECT id FROM muscles WHERE name = ?').pluck().get(muscleName);
-    //log the full request path:
     console.log(req.originalUrl);
     console.log(muscleName, 'has ID:', muscleID);
 
-    // Query database to get list of workout IDs paired with muscleID
     const workoutIDs = db.prepare('SELECT workout_id FROM muscles_to_workouts WHERE muscle_id = ?').all(muscleID);
 
-    // Iterate through all workoutIDs to get an array of corresponding workouts
+    const workoutIDsSet = new Set(workoutIDs.map(row => row.workout_id));
     const workouts = [];
-    workoutIDs.forEach(row => {
-        const workoutID = row.workout_id;
+    workoutIDsSet.forEach(workoutID => {
         const workout = db.prepare('SELECT * FROM workouts WHERE id = ?').get(workoutID);
         if (workout) {
             workouts.push(workout);
         }
-    })
-    // workouts[] now contains an array of JSON objects, each representing details of each workout
+    });
     console.log(workouts);
     res.json(workouts);
 });
+
 
 app.get('/workouts', (req, res) => {
     try {
