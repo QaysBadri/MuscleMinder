@@ -1,75 +1,192 @@
 .exercise-body {
-  font-family: Arial, sans-serif;
+  font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  background-color: #f0f2f5;
+  color: #333;
 }
 
 .exercise-header {
-  background-color: #D32F2F;
+  background-color: #34495e;
   color: white;
   width: 100%;
-  padding: 20px;
-  text-align: left;
+  padding: 60px 0; /* Increased padding for more presence */
+  text-align: center;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Stronger, softer shadow */
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+  /* Dazzle Effect: Subtle background image and gradient overlay */
+  background-image: url("https://via.placeholder.com/1500x300/4a6781/4a6781?text=+"); /* Placeholder: Replace with a subtle fitness-related image */
+  background-size: cover;
+  background-position: center;
+}
+
+.exercise-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(52, 152, 219, 0.4),
+    rgba(231, 76, 60, 0.4)
+  ); /* More pronounced gradient overlay */
+  z-index: 0;
+}
+
+.exercise-header h1 {
+  margin: 0;
+  font-size: 4em; /* Even larger font size for impact */
+  font-weight: 700;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4); /* Stronger text shadow for depth */
+  position: relative;
+  z-index: 1;
+  letter-spacing: 3px; /* More letter spacing */
+  text-transform: uppercase; /* Uppercase for a strong look */
 }
 
 .exercise-main {
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   width: 100%;
+  padding: 0 40px 40px;
+  gap: 30px;
 }
 
 .exercise-content-container {
   display: flex;
-  justify-content: stretch;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
   width: 100%;
-  padding-left: 20px;
-  gap: 20px;
+  max-width: 1000px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.exercise-video-container,
-.exercise-image-container {
-  width: 50%;
+.exercise-content-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.exercise-video-container {
+  flex: 2;
   aspect-ratio: 16/9;
+  min-width: 300px;
+  background-color: #000;
 }
 
-.exercise-video-container iframe,
-.exercise-image-container img {
+.exercise-video-container iframe {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  border: none;
   display: block;
+}
+
+.exercise-description-container {
+  flex: 1.5;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.exercise-description-container h2 {
+  font-size: 1.8em;
+  margin-top: 0;
+  color: #2c3e50;
+  border-bottom: 2px solid #e74c3c;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.exercise-description-container p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #555;
 }
 
 .exercise-bullet-points {
   list-style: none;
-  width: 100%;
-  padding-left: 40px;
-  font-size: 20px;
+  padding: 0;
+  margin: 0;
 }
 
 .exercise-bullet-points li {
-  margin-bottom: 60px;
-  counter-increment: bulletCounter;
+  margin-bottom: 12px;
+  font-size: 1.05em;
   display: flex;
   align-items: center;
+  color: #444;
+}
+
+.exercise-bullet-points li span {
+  font-weight: 500;
+  margin-right: 8px;
+  color: #2c3e50;
 }
 
 .exercise-bullet-points li::before {
-  content: '';
-  background-color: red;
-  color: white;
-  font-size: 20px;
+  content: "\2713";
+  color: #27ae60;
+  font-size: 1.2em;
+  margin-right: 10px;
   font-weight: bold;
-  width: 15px;
-  height: 15px;
-  line-height: 15px;
+}
+
+.no-exercises {
+  font-size: 1.5em;
+  color: #7f8c8d;
   text-align: center;
-  border-radius: 50%;
-  flex-shrink: 0;
-  margin-right: 20px;
+  width: 100%;
+  padding: 50px 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 900px) {
+  .exercise-content-container {
+    flex-direction: column;
+  }
+
+  .exercise-video-container {
+    width: 100%;
+    min-width: auto;
+    flex: none;
+  }
+
+  .exercise-description-container {
+    flex: none;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .exercise-header h1 {
+    font-size: 2.5em;
+  }
+
+  .exercise-main {
+    padding: 0 20px 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .exercise-header {
+    padding: 30px 20px;
+  }
+
+  .exercise-header h1 {
+    font-size: 2em;
+    letter-spacing: 1px;
+  }
 }

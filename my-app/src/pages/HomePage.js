@@ -3,9 +3,9 @@ import Model from "react-body-highlighter";
 import Select from "react-select";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
+import { motion } from "framer-motion";
 import "../App.css";
 
-// Define the options for equipment filtering
 const equipmentOptions = [
   { value: "Dumbbells", label: "Dumbbells" },
   { value: "Cable", label: "Cable" },
@@ -13,7 +13,6 @@ const equipmentOptions = [
   { value: "Machine", label: "Machine" },
 ];
 
-// Define the muscle groups
 const muscleGroups = [
   "calves",
   "hamstring",
@@ -42,14 +41,15 @@ function HomePage() {
   const [muscleGroupCounts, setMuscleGroupCounts] = useState({});
   const [feedback, setFeedback] = useState("");
   const [allExercises, setAllExercises] = useState([]);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setLoading(true);
         const response = await fetch("http://localhost:8080/workouts");
         const data = await response.json();
-        // Transform the backend data to include equipment and muscles properties
         const transformedData = data.map((exercise) => {
           const equipment = [];
           if (exercise.needsDumbbell) equipment.push("Dumbbells");
@@ -57,7 +57,6 @@ function HomePage() {
           if (exercise.needsMachine) equipment.push("Machine");
           if (exercise.needsCable) equipment.push("Cable");
 
-          // If no specific equipment is needed, it can show up for any equipment
           if (equipment.length === 0) {
             equipment.push("Dumbbells", "Barbell", "Machine", "Cable");
           }
@@ -70,8 +69,10 @@ function HomePage() {
           return { ...exercise, equipment, muscles };
         });
         setAllExercises(transformedData);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching workouts:", error);
+        setLoading(false);
       }
     };
 
@@ -138,7 +139,7 @@ function HomePage() {
 
   const handleEquipmentChange = (selectedOptions) => {
     setSelectedEquipment(selectedOptions.map((option) => option.value));
-    setSelectedExercises([]); // Clear selected exercises when equipment changes
+    setSelectedExercises([]);
     Cookies.set(
       "selectedEquipment",
       JSON.stringify(selectedOptions.map((option) => option.value)),
@@ -159,7 +160,7 @@ function HomePage() {
         (selectedEquipment.length === 0 ||
           selectedEquipment.some((equip) => exercise.equipment.includes(equip)))
     );
-    return recommendations.slice(0, 2); // Recommend up to 2 exercises
+    return recommendations.slice(0, 2);
   };
 
   const evaluateWorkout = () => {
@@ -203,7 +204,11 @@ function HomePage() {
   }
 
   return (
-    <div>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
       <h1>Muscle Minder</h1>
 
       <Select
@@ -232,14 +237,18 @@ function HomePage() {
         isDisabled={selectedEquipment.length === 0}
       />
 
-      <div className="ModelContainer">
-        <Model data={filteredExercises} onClick={handleMouseClick} />
-        <Model
-          type="posterior"
-          data={filteredExercises}
-          onClick={handleMouseClick}
-        />
-      </div>
+      {loading ? (
+        <div className="loading-spinner"></div>
+      ) : (
+        <div className="ModelContainer">
+          <Model data={filteredExercises} onClick={handleMouseClick} />
+          <Model
+            type="posterior"
+            data={filteredExercises}
+            onClick={handleMouseClick}
+          />
+        </div>
+      )}
 
       {tooltipVisible && (
         <div
@@ -250,30 +259,45 @@ function HomePage() {
         </div>
       )}
 
-      <button className="button-23" onClick={evaluateWorkout}>
+      <motion.button
+        className="button-23"
+        onClick={evaluateWorkout}
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+      >
         Improve Workout
-      </button>
+      </motion.button>
 
       {feedback && (
-        <div className="Feedback">
+        <motion.div
+          className="Feedback"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
           <h2>Workout Evaluation</h2>
           <table>
             <tbody>
               {feedback.map((item, index) => (
-                <tr key={index}>
+                <motion.tr
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                >
                   <td>{item.group}:</td>
                   <td>{item.message}</td>
                   {item.recommendations && (
                     <td>Recommendations: {item.recommendations}</td>
                   )}
-                </tr>
+                </motion.tr>
               ))}
             </tbody>
           </table>
-        </div>
+        </motion.div>
       )}
       <div ref={bottomRef}></div>
-    </div>
+    </motion.div>
   );
 }
 
